@@ -1,0 +1,30 @@
+@import "@app/index";
+
+
+:host {
+    .sidenav {
+        height: 100%;
+        width: $sidenav-size;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        overflow: hidden;
+        background-color: $sec-dark-blue;
+        
+        padding-top: $nav-height;
+
+        .sidenav-item {
+            padding: 16px;
+            a {
+                @include default-text();
+                display: block;
+                font-weight: bold;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

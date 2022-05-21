@@ -6,10 +6,12 @@ import { RouterModule } from "@angular/router";
 
 import { AppComponent } from "./app.component";
 import { AppPagesModule } from "./pages/pages.module";
+import { SideBarComponent } from "./shared/components/side-bar/side-bar.component";
 
 @NgModule({
 	declarations: [
 		AppComponent,
+		SideBarComponent
 	],
 	imports: [
 		CommonModule,

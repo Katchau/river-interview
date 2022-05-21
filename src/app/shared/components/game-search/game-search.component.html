@@ -1,1 +1,15 @@
-<p>game-search works!</p>
+<ng-container *ngIf="gameData">
+    <div class="game-info">
+        <div class="game-header">
+            <img [src]="gameData.thumb.url" />
+        </div>
+        <div class="game-info">
+            <h3>
+                {{ gameData.title }}
+            </h3>
+            <p>
+                {{ gameData.providerName }}
+            </p>
+        </div>
+    </div>
+</ng-container>

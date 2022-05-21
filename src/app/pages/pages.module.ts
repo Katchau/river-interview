@@ -1,5 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { GameComponentsModule } from "../shared/components/game-component.module";
 import { BodyLayoutComponent } from "./body-layout/body-layout.component";
 import { GamesComponent } from "./games/games.component";
 import { HomeComponent } from "./home/home.component";
@@ -18,6 +19,7 @@ const COMPONENTS = [
 	imports: [
 		CommonModule,
 		AppPagesRoutingModule,
+		GameComponentsModule
 	],
 	declarations: [
 		...COMPONENTS

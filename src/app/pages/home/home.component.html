@@ -3,7 +3,11 @@
 <div class="app-home__content">
 	<div class="app-home__json-data-container">
 		<code class="app-home__json-data">
-			{{gamesData$ | async | json}}
+			<!-- {{gamesData$ | async | json}} -->
+			nani
 		</code>
+		<div class="game-list-area">
+			<app-game-search *ngIf="tempGame" [gameData]="tempGame"></app-game-search>
+		</div>
 	</div>
 </div>
