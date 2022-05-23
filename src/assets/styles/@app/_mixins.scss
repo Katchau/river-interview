@@ -1,1 +1,10 @@
 @import "./breakpoint.mixins";
+
+// text stuff
+@mixin default-text() {
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    color: $white;
+}

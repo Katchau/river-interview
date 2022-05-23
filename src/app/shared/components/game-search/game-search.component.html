@@ -1,14 +1,15 @@
 <ng-container *ngIf="gameData">
-    <div class="game-info">
+    <div class="game-info" (click)="emitRedirect($event)">
         <div class="game-header">
-            <img [src]="gameData.thumb.url" />
+            <img [src]="gameData.thumb.url || ''" />
+            <div *ngIf="gameData.tag" [ngClass]="'tag ' + gameData.tag">{{ gameData.tag }}</div>
         </div>
         <div class="game-info">
             <h3>
                 {{ gameData.title }}
             </h3>
             <p>
-                {{ gameData.providerName }}
+                provider: {{ gameData.providerName }}
             </p>
         </div>
     </div>

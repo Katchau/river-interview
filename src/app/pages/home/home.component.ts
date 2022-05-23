@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy, OnInit, OnDestroy } from "@angular/core";
+import { Router } from "@angular/router";
 import { Observable, Subscription } from "rxjs";
 import { take } from 'rxjs/operators';
 
@@ -14,12 +15,13 @@ const NAME_KEBAB = "app-home";
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-	public tempGame?: Game;
+	public gameData: Game[] = [];
 	unsubscribe?: Subscription;
 	gamesData$: Observable<Game[]>;
 
 	constructor(
-		gameMockClient: GameMockClient
+		gameMockClient: GameMockClient,
+		public router: Router
 	) {
 		this.gamesData$ = gameMockClient.getAll$();
 	}
@@ -28,7 +30,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 		// take 1 unsubscribes to the event but I'll let this stay just in case I change this and then I forget to unsubscribe :) 
 		this.unsubscribe = this.gamesData$.pipe(take(1)).subscribe((data) => {
 			if (data && data.length) {
-				this.tempGame = data[0];
+				this.gameData = data;
 			}
 		})
 	}
@@ -36,6 +38,12 @@ export class HomeComponent implements OnInit, OnDestroy {
 	ngOnDestroy(): void {
 		if (this.unsubscribe) {
 			this.unsubscribe.unsubscribe();
+		}
+	}
+
+	redirectGamePage(slug: string) {
+		if (slug) {
+			this.router.navigateByUrl(`/game/${slug}`);
 		}
 	}
 

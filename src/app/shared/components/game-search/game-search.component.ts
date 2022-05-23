@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Game } from '../../client/game.model';
 
 @Component({
@@ -11,9 +11,16 @@ export class GameSearchComponent implements OnInit {
 
   @Input() 
   public gameData?: Game;
-  constructor() {}
+  @Output()
+  public gameRedirect: EventEmitter<string> = new EventEmitter();
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
+  public emitRedirect(event: Event): void {
+    event.preventDefault();
+    this.gameRedirect.emit(`${this.gameData?.slug}`)
+  }
 }

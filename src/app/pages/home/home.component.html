@@ -7,7 +7,9 @@
 			nani
 		</code>
 		<div class="game-list-area">
-			<app-game-search *ngIf="tempGame" [gameData]="tempGame"></app-game-search>
+			<ng-container *ngFor="let game of gameData">
+				<app-game-search [gameData]="game" (gameRedirect)="redirectGamePage($event)"></app-game-search>
+			</ng-container>
 		</div>
 	</div>
 </div>

@@ -11,9 +11,38 @@
         cursor: pointer;
 
         .game-header {
+            position: relative;
             text-align: center;
+
             img {
-                max-width: 200px;
+                width: 100%;
+            }
+
+            .tag{
+                position: absolute;
+                top: 0;
+
+                border: 1px solid;
+                border-bottom-right-radius: 8px;
+                width: 75px;
+
+                border-color: $white;
+                color: $white;
+                background-color: $white-t;
+
+                text-transform: capitalize;
+
+                &.hot {
+                    border-color: $orange-red;
+                    color: $orange-red;
+                    background-color: $orange-red-t;
+                }
+
+                &.trending {
+                    color: $yellow-torrado;
+                    border-color: $yellow-torrado;
+                    background-color: $yellow-torrado-t;
+                }
             }
         }
     }
