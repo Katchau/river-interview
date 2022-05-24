@@ -1,7 +1,7 @@
 @import "@app/index";
 
 :host{
-    .game-info {
+    .game-card {
         padding: 8px;
         border-radius: 4px;
         background-color: $sec-dark-blue;
@@ -44,6 +44,10 @@
                     background-color: $yellow-torrado-t;
                 }
             }
+        }
+        .game-info {
+            padding: 8px;
+
         }
     }
 }

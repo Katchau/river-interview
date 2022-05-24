@@ -10,6 +10,11 @@
 
         margin-top: $nav-height;
         margin-left: $sidenav-size;
-        padding: 0 32px;        
+        padding: 0 32px;
+        
+        footer {
+            margin-top: auto;
+            margin-bottom: 16px;
+        }
     }
 }
