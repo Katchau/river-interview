@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-games',
@@ -11,5 +12,4 @@ export class GamesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

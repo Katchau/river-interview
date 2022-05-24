@@ -1,16 +1,30 @@
 @import "@app/index";
 
-.app-home {
-	&__title {
-		text-align: center;
-	}
-
-	&__json-data-container {
-		background-color: $black;
-		color: $white;
-
-		@include breakpoint("xsmall") {
-			color: $neon-green;
+:host {
+	.app-home {
+		&__title {
+			text-align: center;
 		}
+	
+		&__game-list-area {
+			display: grid;
+			grid-template-columns: auto auto auto;
+
+
+			.game-item {
+				display: flex;
+				justify-content: center;
+				width: 200px;
+			}
+		}
+	
+		// &__json-data-container {
+		// 	background-color: $black;
+		// 	color: $white;
+	
+		// 	@include breakpoint("xsmall") {
+		// 		color: $neon-green;
+		// 	}
+		// }
 	}
 }

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { Game, GameMockClient } from 'src/app/shared/';
@@ -13,6 +14,8 @@ export class GamePageComponent implements OnInit {
   public gameData?: Game;
 
   constructor(
+    public sanitizer: DomSanitizer,
+
     router: Router,
     route: ActivatedRoute,
 		gameMockClient: GameMockClient,
@@ -30,5 +33,9 @@ export class GamePageComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  iframeURL(url: string) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
 
 }

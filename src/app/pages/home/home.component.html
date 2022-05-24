@@ -1,15 +1,9 @@
 <h1 class="app-home__title">Home</h1>
 
 <div class="app-home__content">
-	<div class="app-home__json-data-container">
-		<code class="app-home__json-data">
-			<!-- {{gamesData$ | async | json}} -->
-			nani
-		</code>
-		<div class="game-list-area">
-			<ng-container *ngFor="let game of gameData">
-				<app-game-search [gameData]="game" (gameRedirect)="redirectGamePage($event)"></app-game-search>
-			</ng-container>
-		</div>
+	<div class="app-home__game-list-area">
+		<ng-container *ngFor="let game of gameData">
+			<app-game-search class="game-item" [gameData]="game" (gameRedirect)="redirectGamePage($event)"></app-game-search>
+		</ng-container>
 	</div>
 </div>

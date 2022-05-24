@@ -1,1 +1,9 @@
-<p>Single game works!</p>
+<ng-container *ngIf="gameData" >
+    <p>
+        {{ gameData.title }}
+    </p>
+    <p>
+        {{ gameData.startUrl }}
+    </p>
+    <iframe [src]="iframeURL(gameData.startUrl) || ''" width="100%" height="900px"></iframe>
+</ng-container>
