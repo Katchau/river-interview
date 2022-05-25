@@ -7,6 +7,8 @@ import { RouterModule } from "@angular/router";
 import { AppComponent } from "./app.component";
 import { AppPagesModule } from "./pages/pages.module";
 import { SideBarComponent } from "./shared/components/side-bar/side-bar.component";
+import { NgxsModule } from "@ngxs/store";
+import { AppState } from "./shared/redux/redux.state";
 
 @NgModule({
 	declarations: [
@@ -18,7 +20,8 @@ import { SideBarComponent } from "./shared/components/side-bar/side-bar.componen
 		HttpClientModule,
 		RouterModule,
 		BrowserModule,
-		AppPagesModule
+		AppPagesModule,
+		NgxsModule.forRoot([AppState],  { developmentMode: true })
 	],
 	providers: [],
 	bootstrap: [AppComponent]

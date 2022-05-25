@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import { take } from 'rxjs/operators';
-import { Game, GameMockClient } from 'src/app/shared/';
+import { Store } from '@ngxs/store';
+import { take, tap } from 'rxjs/operators';
+import { AddRecentGame, Game, GameMockClient } from 'src/app/shared/';
 
 @Component({
   selector: 'app-game',
@@ -11,10 +12,12 @@ import { Game, GameMockClient } from 'src/app/shared/';
 })
 export class GamePageComponent implements OnInit {
 
-  public gameData?: Game;
+  public gameData!: Game;
 
   constructor(
     public sanitizer: DomSanitizer,
+    public store: Store,
+
 
     router: Router,
     route: ActivatedRoute,
@@ -28,11 +31,16 @@ export class GamePageComponent implements OnInit {
         router.navigateByUrl("/404");
       } else {
         this.gameData = game;
+        this.updateStoreGame();
       }
     })
   }
 
   ngOnInit(): void {}
+
+  updateStoreGame(): void {
+    this.store.dispatch(new AddRecentGame(this.gameData));
+  }
 
   iframeURL(url: string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);

@@ -7,7 +7,7 @@
             <div *ngFor="let game of recentGames" class="game-item">
 			    <app-game-search class="game-item" [gameData]="game"></app-game-search>
             </div>
-            <div class="missing-games">
+            <div *ngIf="!recentGames || !recentGames.length" class="missing-games">
                 No recent activity detected
             </div>
         </div>

@@ -10,7 +10,7 @@ import { Game } from '../../client/game.model';
 export class GameSearchComponent implements OnInit {
 
   @Input() 
-  public gameData?: Game;
+  public gameData!: Game;
   @Output()
   public gameRedirect: EventEmitter<string> = new EventEmitter();
   constructor() {

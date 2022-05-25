@@ -1,5 +1,7 @@
 :host {
     #main-content-footer {
-        display: flex;
+        .game-list {
+            display: flex;
+        }
     }
 }
