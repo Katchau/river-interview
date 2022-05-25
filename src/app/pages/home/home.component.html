@@ -1,9 +1,15 @@
-<h1 class="app-home__title">Home</h1>
+<header class="app-home__title">
+	<h1 >River Casino</h1>
+	<h3> Check out our trending games </h3>
+</header>
 
 <div class="app-home__content">
 	<div class="app-home__game-list-area">
 		<ng-container *ngFor="let game of gameData">
 			<app-game-search class="game-item" [gameData]="game" (gameRedirect)="redirectGamePage($event)"></app-game-search>
 		</ng-container>
+		<p *ngIf="!gameData || !gameData.length">
+			Welp, looks like the data coming from the JSON file did not load.
+		</p>
 	</div>
 </div>

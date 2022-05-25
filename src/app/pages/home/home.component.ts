@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 		// take 1 unsubscribes to the event but I'll let this stay just in case I change this and then I forget to unsubscribe :) 
 		this.unsubscribe = this.gamesData$.pipe(take(1)).subscribe((data) => {
 			if (data && data.length) {
-				this.gameData = data;
+				this.gameData = data.filter(game => game.tag === "trending");
 			}
 		})
 	}
