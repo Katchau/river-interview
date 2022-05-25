@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { BodyLayoutComponent } from "./body-layout/body-layout.component";
 import { GamePageComponent } from "./game-page/game-page.component";
-import { GamesComponent } from "./games/games.component";
+import { GameListComponent } from "./games/game-list.component";
 
 import { HomeComponent } from "./home/home.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
@@ -10,7 +10,7 @@ import { PageNotFoundComponent } from "./page-not-found/page-not-found.component
 const ROUTES: Routes = [
 	{ path: "", component: BodyLayoutComponent, children:[
 		{ path: "", component: HomeComponent },
-		{ path: "games", component: GamesComponent },
+		{ path: "game-list", component: GameListComponent },
 		{ path: "game/:id", component: GamePageComponent },
 		{ path: "**", component: PageNotFoundComponent },
 	]},

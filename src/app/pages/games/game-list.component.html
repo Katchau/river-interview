@@ -1,0 +1,17 @@
+<ng-container>
+    <header class="page-title-area">
+        <h1> River Casino </h1>
+        <h3> Search for any game available at this casino </h3>
+    </header>
+    
+    <div class="search-page">
+        <div class="game-list-area">
+            <ng-container *ngFor="let game of gameData">
+                <app-game-search class="game-item" [gameData]="game" (gameRedirect)="redirectGamePage($event)"></app-game-search>
+            </ng-container>
+            <p *ngIf="!gameData.length">
+                No games found with current filters. Please try again with other options.
+            </p>
+        </div>
+    </div>    
+</ng-container>

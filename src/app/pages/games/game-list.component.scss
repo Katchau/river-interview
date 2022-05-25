@@ -1,0 +1,20 @@
+@import "@app/index";
+
+:host {
+
+    .page-title-area {
+        text-align: center;
+    }
+
+    .game-list-area {
+        @include grid-layout(6, 20px, 150px);
+
+        .game-item {
+            // width: 200px;
+            // height: 300px;
+            max-width: 300px;
+            justify-self: center;
+        }
+    }
+	
+}
