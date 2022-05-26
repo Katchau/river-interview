@@ -6,10 +6,10 @@
         </div>
         <div class="game-info">
             <h3>
-                {{ gameData.title }}
+                {{ gameData.title || "Game has no title available" }}
             </h3>
             <p>
-                provider: {{ gameData.providerName }}
+                provider: {{ gameData.providerName || "Info not available" }}
             </p>
         </div>
     </div>

@@ -1,7 +1,7 @@
 <ng-container *ngIf="gameData" >
     <div class="game-content">
         <h1>
-            {{ gameData.title }}
+            {{ gameData.title || "Game has no title available" }}
         </h1>
         <p *ngIf="gameData.description">
             {{ gameData.description }}

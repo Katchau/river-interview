@@ -19,10 +19,9 @@ export class GamePageComponent {
 	public sanitizer: DomSanitizer,
 	public store: Store,
 
-
 	router: Router,
 	route: ActivatedRoute,
-		gameMockClient: GameMockClient,
+	gameMockClient: GameMockClient,
   ) {
 	const slug: string = route.snapshot.paramMap.get("id") || "";
 	const game = gameMockClient.getGame$(slug);
