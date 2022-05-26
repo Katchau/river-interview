@@ -4,8 +4,8 @@ import { GameFooterComponent } from "./game-footer/game-footer.component";
 import { GameSearchComponent } from "./game-search/game-search.component";
 
 const COMPONENTS = [
-    GameFooterComponent,
-    GameSearchComponent
+	GameFooterComponent,
+	GameSearchComponent
 ];
 
 @NgModule({
@@ -20,5 +20,5 @@ const COMPONENTS = [
 	]
 })
 export class GameComponentsModule {
-    
+
 }

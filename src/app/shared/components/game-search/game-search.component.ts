@@ -1,28 +1,26 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Game } from '../../client/game.model';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Game } from "../../client/game.model";
 
 @Component({
-  selector: 'app-game-search',
-  templateUrl: './game-search.component.html',
-  styleUrls: ['./game-search.component.scss'],
+  selector: "app-game-search",
+  templateUrl: "./game-search.component.html",
+  styleUrls: ["./game-search.component.scss"],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GameSearchComponent implements OnInit {
+export class GameSearchComponent {
 
-  @Input() 
-  public gameData!: Game;
   @Input()
-  public hidesHeader?: boolean;
+  gameData!: Game;
+
+  @Input()
+  hidesHeader?: boolean;
+
   @Output()
-  public gameRedirect: EventEmitter<string> = new EventEmitter();
-  constructor() {
-  }
+  gameRedirect: EventEmitter<string> = new EventEmitter();
 
-  ngOnInit(): void {
-  }
 
-  public emitRedirect(event: Event): void {
-    event.preventDefault();
-    this.gameRedirect.emit(`${this.gameData?.slug}`)
+  emitRedirect(event: Event): void {
+	  event.preventDefault();
+	  this.gameRedirect.emit(`${this.gameData?.slug}`);
   }
 }

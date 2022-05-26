@@ -7,8 +7,8 @@ import { GameListComponent, GameSearchFilter } from "./games/game-list.component
 import { HomeComponent } from "./home/home.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from "@angular/material/input";
+import { MatSelectModule } from "@angular/material/select";
 
 
 import { AppPagesRoutingModule } from "./pages-routing.module";

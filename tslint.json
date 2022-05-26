@@ -23,7 +23,8 @@
     "import-spacing": true,
     "indent": [
       true,
-      "tabs"
+      "tabs",
+      4
     ],
     "interface-over-type-literal": true,
     "label-position": true,
@@ -100,9 +101,9 @@
       "check-whitespace"
     ],
     "only-arrow-functions": [
-      "allow-declarations",
+      true,
       "allow-named-functions",
-      true
+      "allow-declarations"
     ],
     "prefer-const": true,
     "prefer-for-of": true,

@@ -9,5 +9,5 @@ export interface Game {
 	thumb: {
 		url: string;
 		title: string;
-	}
+	};
 }

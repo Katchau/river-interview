@@ -25,6 +25,6 @@ export class GameMockClient {
 		return this.http.get<Game[]>(this.dataURL).pipe(switchMap((data: Game[]) => {
 			const game: Game | undefined = data.find(x => x.slug === slug);
 			return of(game);
-		}))
+		}));
 	}
 }

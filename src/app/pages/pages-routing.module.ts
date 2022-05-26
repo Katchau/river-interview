@@ -8,7 +8,7 @@ import { HomeComponent } from "./home/home.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 const ROUTES: Routes = [
-	{ path: "", component: BodyLayoutComponent, children:[
+	{ path: "", component: BodyLayoutComponent, children: [
 		{ path: "", component: HomeComponent },
 		{ path: "game-list", component: GameListComponent },
 		{ path: "game/:id", component: GamePageComponent },

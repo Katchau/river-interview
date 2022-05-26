@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
 import { Store } from "@ngxs/store";
 import { Game, LoadLocalStorage } from "./shared";
-import { AppStateModel } from "./shared/redux/redux.state";
 
 @Component({
 	selector: "app-root",
@@ -9,7 +8,7 @@ import { AppStateModel } from "./shared/redux/redux.state";
 })
 export class AppComponent {
 	constructor (store: Store) {
-	    // this should be on its own service to do these methods, as to not scatter these around the code
+	// this should be on its own service to do these methods, as to not scatter these around the code
 		// Also I commented these options as later on I realized this did not make much sense
 		// But I didn't really wanted to delete this just in case
 

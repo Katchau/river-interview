@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, OnInit, OnDestroy } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable, Subscription } from "rxjs";
-import { take } from 'rxjs/operators';
+import { take } from "rxjs/operators";
 
 import { GameMockClient, Game } from "../../shared";
 
@@ -15,7 +15,7 @@ const NAME_KEBAB = "app-home";
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-	public gameData: Game[] = [];
+	gameData: Game[] = [];
 	unsubscribe?: Subscription;
 	gamesData$: Observable<Game[]>;
 
@@ -27,12 +27,12 @@ export class HomeComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit(): void {
-		// take 1 unsubscribes to the event but I'll let this stay just in case I change this and then I forget to unsubscribe :) 
-		this.unsubscribe = this.gamesData$.pipe(take(1)).subscribe((data) => {
+		// take 1 unsubscribes to the event but I'll let this stay just in case I change this and then I forget to unsubscribe :)
+		this.unsubscribe = this.gamesData$.pipe(take(1)).subscribe((data: Game[]) => {
 			if (data && data.length) {
 				this.gameData = data.filter(game => game.tag === "trending");
 			}
-		})
+		});
 	}
 
 	ngOnDestroy(): void {
