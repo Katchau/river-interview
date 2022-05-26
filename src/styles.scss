@@ -56,3 +56,13 @@ body {
         color: $orange-red;
     }
 }
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $scroll-dark-blue;
+    border-radius: 3px;
+  }

@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { Game } from '../../client/game.model';
 
 @Component({
@@ -11,7 +12,7 @@ export class GameFooterComponent implements OnInit, OnChanges {
 
   @Input()
   public recentGames: Game[] = [];
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
 
@@ -20,4 +21,10 @@ export class GameFooterComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
   }
+
+  redirectGamePage(slug: string) {
+		if (slug) {
+			this.router.navigateByUrl(`/game/${slug}`);
+		}
+	}
 }

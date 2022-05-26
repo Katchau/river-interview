@@ -24,9 +24,10 @@
             <ng-container *ngFor="let game of (gameData | gameSearchFilter: getCurrentSearch():getCurrentProviders())">
                 <app-game-search class="game-item" [gameData]="game" (gameRedirect)="redirectGamePage($event)"></app-game-search>
             </ng-container>
-            <p *ngIf="!gameData.length">
-                No games found with current filters. Please try again with other options.
-            </p>
         </div>
+        <p *ngIf="!(gameData | gameSearchFilter: getCurrentSearch():getCurrentProviders()).length">
+            No games found with current filters.<br>
+            Please try again with other options.
+        </p>
     </div>    
 </ng-container>

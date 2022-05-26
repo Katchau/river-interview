@@ -11,6 +11,8 @@ export class GameSearchComponent implements OnInit {
 
   @Input() 
   public gameData!: Game;
+  @Input()
+  public hidesHeader?: boolean;
   @Output()
   public gameRedirect: EventEmitter<string> = new EventEmitter();
   constructor() {

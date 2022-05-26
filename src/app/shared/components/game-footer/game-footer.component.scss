@@ -1,7 +1,17 @@
 :host {
     #main-content-footer {
         .game-list {
+
             display: flex;
+            flex-flow: row; 
+            overflow-x: auto;
+            column-gap: 20px;
+            overflow-y: hidden;
+
+            .game-item {
+                display: inline-flex;
+                width: 200px;
+            }
         }
     }
 }

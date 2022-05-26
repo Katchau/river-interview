@@ -5,7 +5,7 @@
         </h2>
         <div class="game-list slick">
             <div *ngFor="let game of recentGames" class="game-item">
-			    <app-game-search class="game-item" [gameData]="game"></app-game-search>
+			    <app-game-search class="game-item" (gameRedirect)="redirectGamePage($event)" [gameData]="game" [hidesHeader]="true"></app-game-search>
             </div>
             <div *ngIf="!recentGames || !recentGames.length" class="missing-games">
                 No recent activity detected
