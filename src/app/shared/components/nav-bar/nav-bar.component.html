@@ -1,7 +1,12 @@
 <ng-container>
     <nav class="navbar">
-        <img src="/assets/images/rivertech-logo.png" width="auto" height="50px" alt="river-img" />
+        <mat-icon (click)="collapseSidebar($event)">
+            menu
+        </mat-icon>
 
-        <h5> Sample casino app for test case </h5>
+        <div class="river-logo">
+            <img src="/assets/images/rivertech-logo.png" width="auto" height="50px" alt="river-img" />
+        </div>
+
     </nav>
 </ng-container>

@@ -9,6 +9,8 @@ export const ADD_GAME: string = "[APP] add-recent-game";
 
 export const LOAD_STORAGE: string = "[STORAGE] load-local-storage";
 
+export const SIDEBAR_STATE: string = "[MENU] sidebar-state"
+
 export class EditSearch {
     static readonly type = EDIT_SEARCH;
     constructor(public text: string) {}
@@ -32,4 +34,9 @@ export class AddRecentGame {
 export class LoadLocalStorage {
     static readonly type = LOAD_STORAGE;
     constructor(public search: string, public providers: string[], public recentGames: Game[] ) {}
+}
+
+export class SidebarChange {
+    static readonly type = SIDEBAR_STATE;
+    constructor() {}
 }

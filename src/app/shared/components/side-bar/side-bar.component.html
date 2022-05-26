@@ -1,12 +1,16 @@
 <ng-container>
-    <aside class="sidenav">
+    <aside class="sidenav" [ngClass]="{'collapsed': !sidebarState}">
 
         <div class="sidenav-item">
-            <!-- maybe include a icon or image -->
+            <mat-icon>
+                home
+            </mat-icon>
             <a routerLink="/" > Home </a>
         </div>
         <div class="sidenav-item">
-            <!-- maybe include a icon or image -->
+            <mat-icon>
+                games
+            </mat-icon>
             <a routerLink="/game-list" > Game List </a>
         </div>
     </aside>

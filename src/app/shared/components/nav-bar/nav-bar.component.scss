@@ -13,10 +13,25 @@
 
         overflow: hidden;
         background-color: $main-dark-blue;
-        border-bottom: 1px solid $sec-dark-blue;
+        border-bottom: 2px solid $sec-dark-blue;
 
         display: flex;
         align-items: center;
         padding: 0 12px;
+
+        .river-logo {
+            // position: absolute;
+            // left: 50%;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .mat-icon {
+            margin-left: calc((160px/2) - 40px);
+            font-size: 40px;
+            width: 40px;
+            height: 40px;
+            margin-right: 60px;
+        }
     }
 }

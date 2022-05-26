@@ -15,11 +15,22 @@
         
         padding-top: $nav-height;
 
+        &.collapsed {
+            background-color: red;
+            display: none;
+        }
+
         .sidenav-item {
             padding: 16px;
+            .mat-icon {
+                display: inline;
+                vertical-align: middle;
+                font-size: 20px;
+                margin-right: 8px;
+            }
             a {
                 @include default-text();
-                display: block;
+                display: inline;
                 font-weight: bold;
                 &:hover {
                     text-decoration: underline;

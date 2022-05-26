@@ -20,6 +20,8 @@
                 padding: 12px;
                 background: $main-dark-blue;
 
+                @include default-text();
+
                 &:hover {
                     background-color: $sec-dark-blue;
                 }

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { Game } from "../client/game.model";
-import { AddRecentGame, EditSearch, LoadLocalStorage, ResetProvider, SetProviders } from "./redux.actions";
+import { AddRecentGame, EditSearch, LoadLocalStorage, ResetProvider, SetProviders, SidebarChange } from "./redux.actions";
 
 import { patch, removeItem, insertItem } from '@ngxs/store/operators';
 
@@ -9,6 +9,7 @@ export interface AppStateModel {
     search: string;
     providers: string[];
     recentGames: Game[];
+    sidebarState: boolean;
 }
 
 // TODO let me try to directly put the localStorage here
@@ -18,6 +19,7 @@ export interface AppStateModel {
         search: "",
         providers: [],
         recentGames: [],
+        sidebarState: true,
     }
 })
 @Injectable()
@@ -36,6 +38,11 @@ export class AppState {
     @Selector()
     static getSearchText(state: AppStateModel): string {
         return state.search
+    }
+
+    @Selector()
+    static getSidebarState(state: AppStateModel): boolean {
+        return state.sidebarState
     }
 
 
@@ -95,6 +102,16 @@ export class AppState {
        ctx.setState(
             patch({
             recentGames: insertItem<Game>(newGame, 0),
+            })
+        );
+    }
+
+    @Action(SidebarChange)
+    changeSidebarState(ctx: StateContext<AppStateModel>) {
+       const state = ctx.getState();
+       ctx.setState(
+            patch({
+                sidebarState: !state.sidebarState,
             })
         );
     }

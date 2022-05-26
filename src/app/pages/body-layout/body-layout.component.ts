@@ -12,26 +12,33 @@ import { AppState } from 'src/app/shared/redux/redux.state';
 export class BodyLayoutComponent implements OnInit, OnDestroy {
 
   public recentGames: Game[] = [];
+  public sidebarState: boolean = true;
 
   @Select(AppState.getRecentGames)
   recentGames$!: Observable<Game[]>;
-  unsubscribe?: Subscription;
+
+  @Select(AppState.getSidebarState)
+  sidebarState$!: Observable<boolean>;
+  unsubscribers: Subscription[] = [];
 
   constructor() { 
-    this.unsubscribe = this.recentGames$.subscribe((data) => {
+    this.unsubscribers.push(this.recentGames$.subscribe((data) => {
       this.recentGames = data
       // this should be on its own service to do these methods, as to not scatter these around the code
       localStorage.setItem("recentGames", JSON.stringify(this.recentGames))
-    })
+    }))
+    this.unsubscribers.push(this.sidebarState$.subscribe((data) => {
+      this.sidebarState = data
+    }))
   }
 
   ngOnInit(): void {
   }
 
   ngOnDestroy(): void {
-    if (this.unsubscribe) {
-      this.unsubscribe.unsubscribe();
-    }
+    this.unsubscribers.forEach((unsub) => {
+      unsub.unsubscribe();
+    })
   }
 
 }
