@@ -10,4 +10,49 @@ body {
 
     background-color: $main-dark-blue;
     @include default-text();
+
+    // changing default angular material stuff here
+    .mat-form-field, .mat-option-text {
+        @include default-text();
+    }
+    .mat-pseudo-checkbox {
+        color: #fff;
+    }
+
+    .mat-form-field.mat-focused .mat-form-field-label {
+        color: $yellow-torrado;
+    }
+
+    .mat-form-field.mat-focused .mat-form-field-ripple {
+        background-color: $yellow-torrado;
+    }
+
+    .mat-form-field-appearance-fill .mat-form-field-underline::before {
+        background-color: #fff;
+    }
+
+    .mat-form-field-label {
+        color: #fff;
+    }
+
+    .mat-input-element {
+        caret-color: #fff;
+        color: #fff;
+    }
+
+    .mat-select-value, .mat-select-arrow {
+        color: #fff;
+    }
+
+    .mat-select-panel {
+        background-color: $sec-dark-blue;
+    }
+    
+    .mat-primary .mat-pseudo-checkbox-checked {
+        background-color: $orange-red;
+    }
+
+    .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) .mat-option-text {
+        color: $orange-red;
+    }
 }

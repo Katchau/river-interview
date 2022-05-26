@@ -9,6 +9,11 @@ import { AppPagesModule } from "./pages/pages.module";
 import { SideBarComponent } from "./shared/components/side-bar/side-bar.component";
 import { NgxsModule } from "@ngxs/store";
 import { AppState } from "./shared/redux/redux.state";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
 	declarations: [
@@ -21,7 +26,13 @@ import { AppState } from "./shared/redux/redux.state";
 		RouterModule,
 		BrowserModule,
 		AppPagesModule,
-		NgxsModule.forRoot([AppState],  { developmentMode: true })
+		NgxsModule.forRoot([AppState],  { developmentMode: true }),
+		BrowserAnimationsModule,
+
+		MatFormFieldModule,
+		MatInputModule,
+		MatButtonModule,
+		MatIconModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent]
