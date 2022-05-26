@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
 import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { Game } from "../client/game.model";
-import { AddProvider, AddRecentGame, EditSearch, LoadLocalStorage, RemoveProvider, ResetProvider } from "./redux.actions";
+import { AddRecentGame, EditSearch, LoadLocalStorage, ResetProvider, SetProviders } from "./redux.actions";
 
-import { patch, append, removeItem, insertItem } from '@ngxs/store/operators';
+import { patch, removeItem, insertItem } from '@ngxs/store/operators';
 
 export interface AppStateModel {
     search: string;
@@ -46,22 +46,11 @@ export class AppState {
         });
     }
 
-    @Action(AddProvider)
-    addProvider(ctx: StateContext<AppStateModel>, {provider}: AddProvider) {
-       ctx.setState(
-           patch({
-            providers: append<string>([provider])
-           })
-       );
-    }
-
-    @Action(RemoveProvider)
-    removeProvider(ctx: StateContext<AppStateModel>, {provider}: RemoveProvider) {
-       ctx.setState(
-           patch({
-            providers: removeItem<string>(oldProv => oldProv === provider)
-           })
-       );
+    @Action(SetProviders)
+    setproviders({patchState}: StateContext<AppStateModel>, {providers}: SetProviders) {
+        patchState({
+            providers: providers
+        })
     }
 
     @Action(ResetProvider)

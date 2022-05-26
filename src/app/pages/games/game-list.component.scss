@@ -6,14 +6,20 @@
         text-align: center;
     }
 
-    .game-list-area {
-        @include grid-layout(6, 20px, 150px);
-
-        .game-item {
-            // width: 200px;
-            // height: 300px;
-            max-width: 300px;
-            justify-self: center;
+    .search-page {
+        .filter-area {
+            margin-bottom: 16px;
+        }
+    
+        .game-list-area {
+            @include grid-layout(6, 20px, 150px);
+    
+            .game-item {
+                // width: 200px;
+                // height: 300px;
+                max-width: 300px;
+                justify-self: center;
+            }
         }
     }
 	

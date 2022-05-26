@@ -2,8 +2,7 @@ import { Game } from "../client/game.model";
 
 export const EDIT_SEARCH: string = "[APP] name-search-edit";
 
-export const ADD_PROVIDER: string = "[APP] add-provider";
-export const REMOVE_PROVIDER: string = "[APP] remove-provider";
+export const SET_PROVIDERS: string = "[APP] set-providers";
 export const RESET_PROVIDER: string = "[APP] reset-provider";
 
 export const ADD_GAME: string = "[APP] add-recent-game";
@@ -15,14 +14,9 @@ export class EditSearch {
     constructor(public text: string) {}
 }
 
-export class AddProvider {
-    static readonly type = ADD_PROVIDER;
-    constructor(public provider: string) {}
-}
-
-export class RemoveProvider {
-    static readonly type = REMOVE_PROVIDER;
-    constructor(public provider: string) {}
+export class SetProviders {
+    static readonly type = SET_PROVIDERS;
+    constructor(public providers: string[]) {}
 }
 
 export class ResetProvider {
