@@ -9,6 +9,21 @@
     .search-page {
         .filter-area {
             margin-bottom: 16px;
+
+            .filter {
+                margin-right: 32px;
+            }
+            
+            button {
+                border: $white 1px solid;
+                border-radius: 6px;
+                padding: 12px;
+                background: $main-dark-blue;
+
+                &:hover {
+                    background-color: $sec-dark-blue;
+                }
+            }
         }
     
         .game-list-area {

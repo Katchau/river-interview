@@ -1,0 +1,55 @@
+@import "@app/index";
+
+:host {
+    .game-content { 
+        margin-bottom: 32px;
+
+        .play-button {
+            position: relative;
+            background-color: $yellow-torrado-t;
+
+            cursor: pointer;
+            padding: 16px 24px 12px 14px;
+
+            &, img {
+                width: 100%;
+                max-width: 300px;
+
+                border: 5px #000 solid;
+                border-radius: 50%;
+            }
+
+            img {
+                min-height: 180px;
+            }
+
+            p {
+                position: absolute;
+                z-index: 2;
+
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                margin: 0;
+                font-size: 32px;
+                color: $yellow-torrado;
+                font-weight: 1000;
+                -webkit-text-stroke-width: 2px;
+                -webkit-text-stroke-color: #000;
+            }
+
+            &:hover {
+                p {
+                    color: $orange-red;
+                }
+
+                background-color: $orange-red-t;
+            }
+        }
+    }
+
+    .iframe-class {
+        border: 5px #000 solid;
+    }
+}

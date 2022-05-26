@@ -6,19 +6,25 @@
     
     <div class="search-page">
         <form [formGroup]="formGroup"  class="filter-area">
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Search for a game by its title</mat-label>
-                 <input matInput [formControlName]="'search'" type="text"/>
-              </mat-form-field>
-              <mat-form-field appearance="fill">
+            <p>
+                Search for a game by filtering its title. <br>
+                Or by choosing which provider it belongs to.
+            </p>
+
+            <mat-form-field class="filter" appearance="fill">
+                <mat-label>Game name</mat-label>
+                <input matInput [formControlName]="'search'" type="text"/>
+            </mat-form-field>
+        
+            <mat-form-field class="filter" appearance="fill">
                 <mat-label>Providers</mat-label>
                 <mat-select [formControlName]="'providers'" multiple>
-                  <mat-option *ngFor="let provider of providers" [value]="provider">{{provider}}</mat-option>
+                    <mat-option *ngFor="let provider of providers" [value]="provider">{{provider}}</mat-option>
                 </mat-select>
-              </mat-form-field>
-              <button (click)="resetProviders($event)">
+            </mat-form-field>
+            <button (click)="resetProviders($event)">
                 Reset Providers
-              </button>
+            </button>
         </form>
         <div class="game-list-area">
             <ng-container *ngFor="let game of (gameData | gameSearchFilter: getCurrentSearch():getCurrentProviders())">

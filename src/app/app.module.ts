@@ -14,11 +14,13 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { NavBarComponent } from "./shared/components/nav-bar/nav-bar.component";
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		SideBarComponent
+		SideBarComponent,
+		NavBarComponent,
 	],
 	imports: [
 		CommonModule,

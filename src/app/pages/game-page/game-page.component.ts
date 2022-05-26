@@ -13,6 +13,7 @@ import { AddRecentGame, Game, GameMockClient } from 'src/app/shared/';
 export class GamePageComponent implements OnInit {
 
   public gameData!: Game;
+  public playGame: boolean = false;
 
   constructor(
     public sanitizer: DomSanitizer,
@@ -40,6 +41,11 @@ export class GamePageComponent implements OnInit {
 
   updateStoreGame(): void {
     this.store.dispatch(new AddRecentGame(this.gameData));
+  }
+
+  showGameIframe(event: Event) {
+    event.preventDefault();
+    this.playGame = true;
   }
 
   iframeURL(url: string) {

@@ -8,7 +8,7 @@ import { Game } from '../../client/game.model';
   styleUrls: ['./game-footer.component.scss'],
 	changeDetection: ChangeDetectionStrategy.Default,
 })
-export class GameFooterComponent implements OnInit, OnChanges {
+export class GameFooterComponent implements OnInit {
 
   @Input()
   public recentGames: Game[] = [];
@@ -18,13 +18,14 @@ export class GameFooterComponent implements OnInit, OnChanges {
 
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-  }
-
   redirectGamePage(slug: string) {
 		if (slug) {
-			this.router.navigateByUrl(`/game/${slug}`);
+      if (this.router.url.includes("game/")) {
+        this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+        this.router.navigate([`/game/${slug}`]));
+      }
+			else 
+        this.router.navigateByUrl(`/game/${slug}`);
 		}
 	}
 }

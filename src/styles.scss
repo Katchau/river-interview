@@ -11,6 +11,19 @@ body {
     background-color: $main-dark-blue;
     @include default-text();
 
+    a {
+        text-decoration: none;
+        color: $yellow-torrado;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    button {
+        cursor: pointer;
+    }
+
     // changing default angular material stuff here
     .mat-form-field, .mat-option-text {
         @include default-text();

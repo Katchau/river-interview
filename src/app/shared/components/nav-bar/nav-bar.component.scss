@@ -1,0 +1,22 @@
+@import "@app/index";
+
+
+:host {
+    .navbar {
+        height: $nav-height;
+        width: calc(100% - 24px);
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 2;
+
+        overflow: hidden;
+        background-color: $main-dark-blue;
+        border-bottom: 1px solid $sec-dark-blue;
+
+        display: flex;
+        align-items: center;
+        padding: 0 12px;
+    }
+}
