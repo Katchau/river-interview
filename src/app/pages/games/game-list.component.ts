@@ -43,20 +43,20 @@ export class GameListComponent implements OnInit, OnDestroy {
 
 	constructor(
 		public router: Router,
-	public route: ActivatedRoute,
-	public store: Store,
-	public location: Location,
+		public route: ActivatedRoute,
+		public store: Store,
+		public location: Location,
 		gameMockClient: GameMockClient,
 	) {
 
-	this.formGroup = new FormGroup({
-		search: new FormControl(""),
-		providers: new FormControl([]),
-	});
+		this.formGroup = new FormGroup({
+			search: new FormControl(""),
+			providers: new FormControl([]),
+		});
 
-	this.gamesData$ = gameMockClient.getAll$();
+		this.gamesData$ = gameMockClient.getAll$();
 
-	this.gamesData$.pipe(take(1)).subscribe(data => {
+		this.gamesData$.pipe(take(1)).subscribe(data => {
 			if (data && data.length) {
 		this.gameData = data;
 		this.createProvidersList();
@@ -66,53 +66,60 @@ export class GameListComponent implements OnInit, OnDestroy {
 
 	ngOnInit(): void {
 
-	this.route.queryParams
-		.pipe(take(1)).subscribe(params => {
-		if (params.searchTerm) {
-			this.formGroup.controls.search.setValue(params.searchTerm);
-			this.updateSearchText(params.searchTerm);
-		}
-		const provs: string[] = typeof params.providers === "string" ? [params.providers] : params.providers;
-		if (params.providers) {
-			this.formGroup.controls.providers.setValue(provs);
-			this.updateProvidersList(params.providers);
-		}
-		}
-	);
-	// debounces 500ms to delay the request and prevents in between requests
-	this.formGroup.controls.search.valueChanges.pipe(debounceTime(500)).subscribe(data => {
-		this.updateSearchText(data);
-	});
-	this.formGroup.controls.providers.valueChanges.subscribe(data => {
-		this.updateProvidersList(data);
-	});
+		// this is still valid for example
+		// const coiso = this.gamesData$.subscribe(data => {
+		// 	if (data && data.length) {
+		// 		this.gameData = data;
+		// 		this.createProvidersList();
+		// 	}
+		// });
+
+		// this.unsubscriber.push(coiso);
+
+		this.route.queryParams.pipe(take(1)).subscribe(params => {
+			if (params.searchTerm) {
+				this.formGroup.controls.search.setValue(params.searchTerm);
+				this.updateSearchText(params.searchTerm);
+			}
+			const provs: string[] = typeof params.providers === "string" ? [params.providers] : params.providers;
+			if (params.providers) {
+				this.formGroup.controls.providers.setValue(provs);
+				this.updateProvidersList(params.providers);
+			}
+		});
+		// debounces 500ms to delay the request and prevents in between requests
+		this.formGroup.controls.search.valueChanges.pipe(debounceTime(500)).subscribe(data => {
+			this.updateSearchText(data);
+		});
+		this.formGroup.controls.providers.valueChanges.subscribe(data => {
+			this.updateProvidersList(data);
+		});
 	}
 
 	ngOnDestroy(): void {
-	this.unsubscriber.forEach((subscription: Subscription) => {
-		subscription.unsubscribe();
-	});
+		this.unsubscriber.forEach((subscription: Subscription) => {
+			subscription.unsubscribe();
+		});
 	}
 
 	getCurrentSearch(): string {
 	// this is not this.formGroup.controls["search"].value since we dont want to update right away as opposed to the filters
-	return this.currentSearch;
+		return this.currentSearch;
 	}
 
 	getCurrentProviders(): string[] {
-	return this.formGroup.controls.providers.value;
+		return this.formGroup.controls.providers.value;
 	}
 
 	resetProviders(event: Event) {
-	event.preventDefault();
-	this.formGroup.controls.providers.setValue([]);
+		event.preventDefault();
+		this.formGroup.controls.providers.setValue([]);
 	}
 
 
 	createProvidersList(): void {
-	if (this.gameData.length && !this.providers.length) {
-		const allProviders = this.gameData.map(game =>
-			game.providerName);
+		if (this.gameData.length && !this.providers.length) {
+			const allProviders = this.gameData.map(game => game.providerName);
 			// removes repeated
 			this.providers = [... new Set(allProviders)];
 		}

@@ -9,7 +9,10 @@
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 2;
+        // z-index: 2;
+
+        // update
+        z-index: 3;
 
         overflow: hidden;
         background-color: $main-dark-blue;
