@@ -434,5 +434,41 @@
 		"providerName": "Play'n GO",
 		"startUrl": "https://gamelauncher.nightking.dev/v1/playngo?iframeUrl=aHR0cHM6Ly9hY2Njd3N0YWdlLnBsYXluZ29uZXR3b3JrLmNvbS9jYXNpbm8vQ29udGFpbmVyTGF1bmNoZXI%2FZGl2PWdhbWVGcmFtZSZnYW1laWQ9MzY1JnJjYWNjb3VudGhpc3Rvcnl1cmwmcGlkPTY0OCZjaGFubmVsPWRlc2t0b3AmcHJhY3RpY2U9MSZkZW1vPTImdXNlcj1wcmFjdGljZSZsYW5nPWVu&lobbyUrl=http%3A%2F%2Flocalhost%3A4100%2Fplay%2Fplayngo-legacy-of-dead&originUrl=http%3A%2F%2Flocalhost",
 		"thumb": null
+	},
+	{
+		"id": "razor-shark",
+		"slug": "razor-shark",
+		"title": "Razor Shark",
+		"tag": "hot",
+		"providerName": "Push Gaming",
+		"startUrl": "https://d2drhksbtcqozo.cloudfront.net/casino/games/razorshark/index.html?gameid=razorshark&channel=web&moneymode=fun&partnerid=1",
+		"thumb": {
+			"url": "https://cdn.coingaming.io/casino-hub88/push/razor_shark_thumb.jpg",
+			"title": "razor-shark-push"
+		}
+	},
+	{
+		"id": "el-paso",
+		"slug": "el-paso",
+		"title": "El Paso",
+		"tag": "hot",
+		"providerName": "Push Gaming",
+		"startUrl": "https://malta.nolimitcdn.com/loader/game-loader.html?device=desktop&language=en&operator=WHEELZ&mute=false&game=ElPaso",
+		"thumb": {
+			"url": "https://free-slots-no-download.com/wp-content/uploads/sites/10015/elpaso-gunfight-online-slot.jpg",
+			"title": "El-paso-push"
+		}
+	},
+	{
+		"id": "big-bamboo",
+		"slug": "big-bamboo",
+		"title": "Big Bamboo",
+		"tag": "trending",
+		"providerName": "Push Gaming",
+		"startUrl": "https://player.eu.regulated.pushgaming.com/mesh/b2c/igp/dm-verajohn/launch?rgsCode=hive&rgsGameId=bigbamboo-01&mode=DEMO&lang=sv&country=EN&ccyCode=EUR&jurisdiction=MT",
+		"thumb": {
+			"url": "https://www.luckymobileslots.com/wp-content/uploads/2022/03/big-bamboo-slot-logo.jpg",
+			"title": "big-bamboo-push"
+		}
 	}
 ]
